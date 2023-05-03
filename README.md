@@ -1,11 +1,4 @@
 # Auction Website
-
-**Link**: [AuctionKE](https://auctionke.herokuapp.com/watchlist/)
-
-HOME PAGE
-
-![image](https://github.com/WMKCharles/Auction-Site/blob/main/Auction.JPG)
-
 # Motivation
 
 A lot of farmers suffer in the hands of middlemen who exploit them when they are trying to find market for their livestock.
@@ -83,15 +76,7 @@ python manage.py runserver
 4. Push to the original branch: `git push origin <project_name>/<location>`
 5. Create the pull request.
 
-Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
 ## Bug / Feature Request
 
 In case you find a bug, kindly open an issue [here](https://https://github.com/WMKCharles/Auction-Site/issues/new). Include your query and your expected results.
 
-## Author 
-
-* **[Charles Wafula](https://https://github.com/WMKCharles)** 
-
-[![github follow](https://img.shields.io/github/followers/WMKCharles?label=Follow_on_GitHub)](https://github.com/WMKCharles)
-[![twitter follow](https://img.shields.io/twitter/follow/WMKCharles?style=social)](https://twitter.com/WMKCharles)
