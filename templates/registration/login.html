@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}LOGIN {% endblock %}
+
+{% block content %}
+
+<!-- <div class="card">
+    <div class="card-header">Log-in</div>
+    <div class="card-body">
+        {% if form.errors %}
+        <p>
+        Your username and password didn't match.Please try again.
+        </p>
+        {% else %}
+        <p>Please, use the following form to log-in:</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{form | crispy }}
+            <input type="hidden" name="'next" value="{{next}}">
+            <p><input type="submit" class="btn btn-primary"  value="Log-in"></p>
+          </form>
+    </div>
+    <div class="card-footer">
+      <a href="{% url 'password_reset' %}">Forgot password?</a> | <a href="{% url 'register' %}">Create Account</a>
+    </div>
+  </div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto login-form-wrapper">
+      <h2>Login</h2>
+      {% if form.errors %}
+      <p>
+        Your username and password didn't match.Please try again.
+      </p>
+      {% else %}
+      <p>Please, use the following form to log-in:</p>
+      {% endif %}
+      <div class="form-option">
+
+        <button class="btn btn-consumer active" id="btn-consumer" onclick="activeConsumer()">Consumer</button>
+        <button class="btn btn-farmer" id="btn-farmer" onclick="activeFarmer()">Farmer</button>
+      </div>
+
+      <!-- Consumer login form -->
+      <form class="login-form login-consumer active" method="post">
+        {% csrf_token %}
+        {{form | crispy }}
+        <div class="form-group">
+          <input type="hidden" name="'next" value="{{next}}">
+        </div>
+        <button type="submit" class="btn">Login as a Consumer</button>
+        <div class="card-footer">
+          <a href="{% url 'password_reset' %}">Forgot password?</a> | <a href="{% url 'register' %}">Create Account</a>
+        </div>
+      </form>
+
+      <!-- Farmer login form -->
+      <form class="login-form login-farmer" method="post">
+        {% csrf_token %}
+        {{form | crispy }}
+        <div class="form-group">
+          <input type="hidden" name="'next" value="{{next}}">
+        </div>
+        <button type="submit" class="btn">Login as a Farmer</button>
+        <div class="card-footer">
+          <a href="{% url 'password_reset' %}">Forgot password?</a> | <a href="{% url 'register' %}">Create Account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Custom JS -->
+<script>
+  $(document).ready(function () {
+    // Show consumer login form by default
+    $('.login-consumer').addClass('active');
+
+    // Switch between consumer and farmer login forms
+    $('.btn-consumer').click(function () {
+      $('.btn-farmer').removeClass('active');
+      $('.btn-consumer').addClass('active');
+      $('.login-farmer').removeClass('active');
+      $('.login-consumer').addClass('active');
+    });
+
+    $('.btn-farmer').click(function () {
+      $('.btn-consumer').removeClass('active');
+      $('.btn-farmer').addClass('active');
+      $('.login-consumer').removeClass('active');
+      $('.login-farmer').addClass('active');
+    });
+  });
+
+  function activeFarmer() {
+      document.getElementById('btn-farmer').style.backgroundColor = "#007bff";
+      document.getElementById('btn-farmer').style.color = "#fff";
+      document.getElementById('btn-consumer').style.backgroundColor = "#f5f5f5";
+      document.getElementById('btn-consumer').style.color = "#444";
+    
+  }
+
+  function activeConsumer() {
+      document.getElementById('btn-consumer').style.backgroundColor = "#007bff";
+      document.getElementById('btn-consumer').style.color = "#fff";
+      document.getElementById('btn-farmer').style.backgroundColor = "#f5f5f5";
+      document.getElementById('btn-farmer').style.color = "#444";
+  }
+
+</script>
+
+
+{% endblock %}
